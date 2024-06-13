@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./superTask.js"></script>
+  </head>
+  <body>
+    <script>
+      const superTask = new SuperTask(2);
+      superTask
+        .addTask(() => {
+          return new Promise((resolve) => {
+            setTimeout(() => {
+              console.log("task-1");
+              resolve(1);
+            }, 7000);
+          });
+        })
+        .then((res) => {
+          console.log("task-1的结果是:" + res);
+        });
+      superTask
+        .addTask(() => {
+          return new Promise((resolve) => {
+            setTimeout(() => {
+              console.log("task-2");
+              resolve(2);
+            }, 3000);
+          });
+        })
+        .then((res) => console.log("task-2的结果是:" + res));
+      superTask
+        .addTask(() => {
+          return new Promise((resolve) => {
+            setTimeout(() => {
+              console.log("task-3");
+              resolve(3);
+            }, 3000);
+          });
+        })
+        .then((res) => console.log("task-3的结果是:" + res));
+    </script>
+  </body>
+</html>

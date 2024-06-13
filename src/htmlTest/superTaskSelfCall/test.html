@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./superTask.js"></script>
+  </head>
+  <body>
+    <script>
+    
+    const timeout = (time,taskName)=>{
+        return ()=>new Promise((resolve)=>{
+            setTimeout(()=>{
+                console.log(taskName+'：完成')
+                resolve(time)
+            },time);
+        })
+    }
+    const superTask = new SuperTask(2);
+    superTask
+        .addTask(timeout(5000,'t1')).addTask(timeout(3000,'t2')).addTask(timeout(3000,'t3'))
+    </script>
+  </body>
+</html>
